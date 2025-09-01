@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(45deg,rgba(77,124,185,0.728));
+        }
+        #container {
+            position: relative;
+            width: 500px;
+            height: 600px;
+            margin: 5px;
+            overflow: hidden;
+
+        }
+        h1 {
+            animation: fadeInUp 1.5s ease;
+        }
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        span {
+            width: 50px;
+            height: 50px;
+        }
+        #target {
+            position: absolute;
+            left: 200px;
+            background-color: rgb(0, 89, 255);
+            border: none;
+            width: 90px;
+            border-radius: 10px;
+            font-size: 25px;
+            padding: 8px;
+            cursor: pointer;
+            transition: top 0.5, left 0.5s;
+            margin-top: 20px;
+            color: white;
+
+        }
+        #yes {
+            background-color: rgb(255,0,0);
+            border: none;
+            width: 90px;
+            border-radius: 10px;
+            font-size: 25px;
+            padding: 8px;
+            cursor: pointer;
+            transition: top 0.5, left 0.5s;
+            margin-top: 20px;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="box">
+            <h1>Do you love me ? <span>💕</span></h1>
+            <button id="target">No</button>
+            <button id="yes">Yes</button>
+        </div>
+    </div>
+
+    <script>
+        const target = document.getElementById('target');
+       const yes = document.getElementById('yes');
+       
+       yes.addEventListener('click', () => {
+           alert("I love you too😍😘🥰");
+       });
+
+       function moveTarget() {
+           const maxWidth = 400;
+           const maxHeight = 400;
+
+           const randomX = Math.floor(Math.random() * maxWidth);
+           const randomY = Math.floor(Math.random() * maxHeight);
+
+           target.style.left = randomX + 'px';
+           target.style.top = randomY + 'px';
+       }
+
+       target.addEventListener('mouseenter', function() {
+           moveTarget();
+       });
+    </script>
+
+</body>
+</html>
+
+
